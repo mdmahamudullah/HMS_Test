@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System - Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex min-h-screen bg-gray-100 font-sans">
+    <div class="lg:hidden fixed top-4 left-4 text-2xl cursor-pointer z-50" onclick="toggleSidebar()">☰</div>
+    <div id="sidebar" class="w-64 bg-gray-800 text-white fixed h-full p-4 transition-all duration-300 lg:w-64 max-lg:w-0 max-lg:overflow-hidden lg:overflow-visible">
+        <h2 class="text-2xl font-bold text-center mb-8">Admin Panel</h2>
+        <ul class="space-y-2">
+            <li class="p-3 rounded-lg hover:bg-gray-700 active:bg-gray-700 transition cursor-pointer active" onclick="showModule('patient-management')"><a href="#" class="text-white no-underline">Patient Management</a></li>
+            <li class="p-3 rounded-lg hover:bg-gray-700 active:bg-gray-700 transition cursor-pointer" onclick="showModule('doctor-management')"><a href="#" class="text-white no-underline">Doctor Management</a></li>
+            <li class="p-3 rounded-lg hover:bg-gray-700 active:bg-gray-700 transition cursor-pointer" onclick="showModule('opd-management')"><a href="#" class="text-white no-underline">Reception/OPD</a></li>
+            <li class="p-3 rounded-lg hover:bg-gray-700 active:bg-gray-700 transition cursor-pointer" onclick="showModule('ipd-management')"><a href="#" class="text-white no-underline">IPD Management</a></li>
+            <li class="p-3 rounded-lg hover:bg-gray-700 active:bg-gray-700 transition cursor-pointer" onclick="showModule('billing-system')"><a href="#" class="text-white no-underline">Billing System</a></li>
+            <li class="p-3 rounded-lg hover:bg-gray-700 active:bg-gray-700 transition cursor-pointer" onclick="showModule('pharmacy-module')"><a href="#" class="text-white no-underline">Pharmacy Module</a></li>
+            <li class="p-3 rounded-lg hover:bg-gray-700 active:bg-gray-700 transition cursor-pointer" onclick="showModule('lab-module')"><a href="#" class="text-white no-underline">Laboratory/Diagnostic</a></li>
+            <li class="p-3 rounded-lg hover:bg-gray-700 active:bg-gray-700 transition cursor-pointer" onclick="showModule('user-role-management')"><a href="#" class="text-white no-underline">User Role Management</a></li>
+            <li class="p-3 rounded-lg hover:bg-gray-700 active:bg-gray-700 transition cursor-pointer" onclick="showModule('inventory-management')"><a href="#" class="text-white no-underline">Inventory Management</a></li>
+            <li class="p-3 rounded-lg hover:bg-gray-700 active:bg-gray-700 transition cursor-pointer" onclick="showModule('reports-analytics')"><a href="#" class="text-white no-underline">Reports & Analytics</a></li>
+        </ul>
+    </div>
+    <div class="lg:ml-64 flex-grow p-6">
+        <div id="patient-management" class="module-section hidden bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Patient Management</h2>
+            <p class="text-gray-600">Manage patient-related activities:</p>
+            <ul class="list-disc pl-5 mt-2 text-gray-600">
+                <li>Patient Registration</li>
+                <li>Patient History</li>
+                <li>Admit/Discharge/Transfer</li>
+                <li>Appointment Booking</li>
+            </ul>
+        </div>
+        <div id="doctor-management" class="module-section hidden bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Doctor Management</h2>
+            <p class="text-gray-600">Manage doctor-related activities:</p>
+            <ul class="list-disc pl-5 mt-2 text-gray-600">
+                <li>Doctor Profile</li>
+                <li>Schedule & Availability</li>
+                <li>Appointments with Patients</li>
+            </ul>
+        </div>
+        <div id="opd-management" class="module-section hidden bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Reception/OPD Management</h2>
+            <p class="text-gray-600">Handle OPD operations:</p>
+            <ul class="list-disc pl-5 mt-2 text-gray-600">
+                <li>OPD Token Issuing</li>
+                <li>First Checkup Details</li>
+            </ul>
+        </div>
+        <div id="ipd-management" class="module-section hidden bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">IPD Management</h2>
+            <p class="text-gray-600">Manage indoor patient activities:</p>
+            <ul class="list-disc pl-5 mt-2 text-gray-600">
+                <li>Bed Allocation</li>
+                <li>Room Shifting</li>
+                <li>Daily Checkups and Notes</li>
+            </ul>
+        </div>
+        <div id="billing-system" class="module-section hidden bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Billing System</h2>
+            <p class="text-gray-600">Handle financial transactions:</p>
+            <ul class="list-disc pl-5 mt-2 text-gray-600">
+                <li>Consultation Fees</li>
+                <li>Room Rent</li>
+                <li>Test Reports</li>
+                <li>Medicine & Services Billing</li>
+            </ul>
+        </div>
+        <div id="pharmacy-module" class="module-section hidden bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Pharmacy Module</h2>
+            <p class="text-gray-600">Manage pharmacy operations:</p>
+            <ul class="list-disc pl-5 mt-2 text-gray-600">
+                <li>Medicine Inventory</li>
+                <li>Sales Record</li>
+                <li>Expiry Alert</li>
+            </ul>
+        </div>
+        <div id="lab-module" class="module-section hidden bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Laboratory/Diagnostic Module</h2>
+            <p class="text-gray-600">Manage diagnostic activities:</p>
+            <ul class="list-disc pl-5 mt-2 text-gray-600">
+                <li>Test Assigning</li>
+                <li>Report Upload</li>
+                <li>Doctor Approval</li>
+            </ul>
+        </div>
+        <div id="user-role-management" class="module-section hidden bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">User Role Management</h2>
+            <p class="text-gray-600">Manage user roles and permissions:</p>
+            <ul class="list-disc pl-5 mt-2 text-gray-600">
+                <li>Admin</li>
+                <li>Doctor</li>
+                <li>Nurse</li>
+                <li>Receptionist</li>
+                <li>Pharmacist</li>
+            </ul>
+        </div>
+        <div id="inventory-management" class="module-section hidden bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Inventory Management</h2>
+            <p class="text-gray-600">Track hospital inventory:</p>
+            <ul class="list-disc pl-5 mt-2 text-gray-600">
+                <li>Equipment Tracking</li>
+                <li>Consumables</li>
+            </ul>
+        </div>
+        <div id="reports-analytics" class="module-section hidden bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Reports & Analytics</h2>
+            <p class="text-gray-600">Generate and analyze reports:</p>
+            <ul class="list-disc pl-5 mt-2 text-gray-600">
+                <li>Daily/Weekly Reports</li>
+                <li>Revenue & Expense Tracking</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        // Show Patient Management by default
+        document.getElementById('patient-management').classList.remove('hidden');
+        
+        function showModule(moduleId) {
+            // Hide all module sections
+            document.querySelectorAll('.module-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            // Remove active class from all sidebar items
+            document.querySelectorAll('.sidebar ul li').forEach(item => {
+                item.classList.remove('active');
+            });
+            // Show selected module
+            document.getElementById(moduleId).classList.remove('hidden');
+            // Add active class to clicked sidebar item
+            document.querySelector(`.sidebar ul li[onclick="showModule('${moduleId}')"]`).classList.add('active');
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('w-0');
+            document.getElementById('sidebar').classList.toggle('w-64');
+        }
+    </script>
+</body>
+</html>
